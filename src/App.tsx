@@ -1,9 +1,20 @@
 import './App.css';
 import { useState, useEffect, FC } from 'react';
-import { storeItemProps } from './types';
+import { storeItemProps, dataType } from './types';
+import SearchInput from './components/SearchInput';
+import { search } from './actions';
 
 const App: FC = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<dataType>([
+    {
+      name: '',
+      price: '',
+      type: '',
+    },
+  ]);
+
+  const [searchValue, setSearchValue] = useState<string>('');
+
   useEffect(() => {
     async function getData() {
       try {
@@ -22,7 +33,12 @@ const App: FC = () => {
       <h2 className='page-title'>Store Parts</h2>
 
       <div className='inputs-area flex'>
-        <input className='input search-input' placeholder='search...' />
+        <SearchInput
+          onChange={(searchValue: string) => {
+            setSearchValue(searchValue);
+            search(searchValue, data);
+          }}
+        />
         <input className='input price-input' placeholder='price ↑' />
         <input className='input type-input' placeholder='type' />
       </div>
