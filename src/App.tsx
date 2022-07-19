@@ -7,7 +7,7 @@ import { search } from './actions';
 const App: FC = () => {
   const [data, setData] = useState<dataType>([
     {
-      name: '',
+      name: 'loading...',
       price: '',
       type: '',
     },
@@ -15,6 +15,7 @@ const App: FC = () => {
 
   const [searchValue, setSearchValue] = useState<string>('');
 
+  //fetch the data asynchronously on first component mount
   useEffect(() => {
     async function getData() {
       try {
@@ -44,8 +45,18 @@ const App: FC = () => {
       </div>
 
       <div className='data-display' data-testid='test-data'>
-        <ul>
+        {/* <ul>
           {data.map((item: storeItemProps) => (
+            <li key={item.name}>
+              <p>{item.name}</p>
+              <p>{item.price}</p>
+              <p>{item.type}</p>
+            </li>
+          ))}
+        </ul>
+        <hr /> */}
+        <ul>
+          {search(searchValue, data).map((item: storeItemProps) => (
             <li key={item.name}>
               <p>{item.name}</p>
               <p>{item.price}</p>
