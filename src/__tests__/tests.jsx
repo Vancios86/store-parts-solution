@@ -1,7 +1,7 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import App from '../App';
-import { storeItems } from '../mock-data/mockData';
-import { search } from '../actions';
+import { storeItems, keyboards } from '../mock-data/mockData';
+import { search, orderByPrice } from '../actions';
 
 test('should render App component', () => {
   render(<App />);
@@ -27,6 +27,26 @@ test('should perform search action and return the correct elements', () => {
     {
       name: 'Keyboard 3',
       price: '83.00$',
+      type: 'Keyboard',
+    },
+  ]);
+});
+
+test('should sort the items by price', () => {
+  expect(orderByPrice(true, keyboards)).toMatchObject([
+    {
+      name: 'Keyboard 1',
+      price: '15.00$',
+      type: 'Keyboard',
+    },
+    {
+      name: 'Keyboard 3',
+      price: '83.00$',
+      type: 'Keyboard',
+    },
+    {
+      name: 'Keyboard 2',
+      price: '154.00$',
       type: 'Keyboard',
     },
   ]);

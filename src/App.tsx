@@ -2,7 +2,8 @@ import './App.css';
 import { useState, useEffect, FC } from 'react';
 import { storeItemProps, dataType } from './types';
 import SearchInput from './components/SearchInput';
-import { search } from './actions';
+import PriceOrder from './components/PriceOrder';
+import { search, orderByPrice } from './actions';
 
 const App: FC = () => {
   const [data, setData] = useState<dataType>([
@@ -12,8 +13,8 @@ const App: FC = () => {
       type: '',
     },
   ]);
-
   const [searchValue, setSearchValue] = useState<string>('');
+  const [ascendingPrice, setAscendingPrice] = useState<boolean>(false);
 
   //fetch the data asynchronously on first component mount
   useEffect(() => {
@@ -40,21 +41,16 @@ const App: FC = () => {
             search(searchValue, data);
           }}
         />
-        <input className='input price-input' placeholder='price ↑' />
+        <PriceOrder
+          onChange={(ascendingPrice: boolean) => {
+            setAscendingPrice(ascendingPrice);
+            orderByPrice(ascendingPrice, data);
+          }}
+        />
         <input className='input type-input' placeholder='type' />
       </div>
 
       <div className='data-display' data-testid='test-data'>
-        {/* <ul>
-          {data.map((item: storeItemProps) => (
-            <li key={item.name}>
-              <p>{item.name}</p>
-              <p>{item.price}</p>
-              <p>{item.type}</p>
-            </li>
-          ))}
-        </ul>
-        <hr /> */}
         <ul>
           {search(searchValue, data).map((item: storeItemProps) => (
             <li key={item.name}>
