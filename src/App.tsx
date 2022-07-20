@@ -29,6 +29,7 @@ const App: FC = () => {
     price: '',
     type: '',
   });
+  const [arrow, setArrow] = useState<string>('');
 
   //fetch the data asynchronously on first component mount
   useEffect(() => {
@@ -62,8 +63,11 @@ const App: FC = () => {
               }}
             />
             <PriceOrder
+              arrow={arrow}
+              ascending={ascendingPrice}
               onChange={(ascendingPrice: boolean): void => {
                 setAscendingPrice(ascendingPrice);
+                setArrow(ascendingPrice ? '↓' : '↑');
                 orderByPrice(ascendingPrice, data);
               }}
             />
