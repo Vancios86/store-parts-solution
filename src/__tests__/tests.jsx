@@ -1,7 +1,8 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import App from '../App';
 import { storeItems, keyboards } from '../mock-data/mockData';
-import { search, orderByPrice } from '../actions';
+import { search, orderByPrice, filterByType } from '../actions';
+import Item from '../components/Item';
 
 test('should render App component', () => {
   render(<App />);
@@ -12,7 +13,7 @@ test('should render App component', () => {
   expect(data).toBeInTheDocument();
 });
 
-test('should perform search action and return the correct elements', () => {
+test('should filter the items by search value', () => {
   expect(search('k', storeItems)).toMatchObject([
     {
       name: 'Keyboard 1',
@@ -49,6 +50,33 @@ test('should sort the items by price', () => {
       price: '154.00$',
       type: 'Keyboard',
     },
+  ]);
+});
+
+test('should filter the elements by type', () => {
+  expect(filterByType('mouse', storeItems)).toMatchObject([
+    {
+      name: 'Mouse 1',
+      price: '112.00$',
+      type: 'Mouse',
+    },
+    {
+      name: 'Mouse 2',
+      price: '35.99$',
+      type: 'Mouse',
+    },
+  ]);
+});
+
+test('should return correct items when filtering by both search and selected type', () => {
+  expect(
+    filterByType('keyboard', search('2', storeItems)).map((item) => (
+      <Item itemProps={item} />
+    ))
+  ).toMatchObject([
+    <Item
+      itemProps={{ name: 'Keyboard 2', price: '154.00$', type: 'Keyboard' }}
+    />,
   ]);
 });
 
