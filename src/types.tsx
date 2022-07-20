@@ -6,8 +6,9 @@ export type TextAreaChangeEventHandler =
   React.ChangeEventHandler<HTMLTextAreaElement>;
 export type SelectChangeEventHandler =
   React.ChangeEventHandler<HTMLSelectElement>;
+export type ClickEventHandler = React.MouseEvent<HTMLElement>;
 
-export type storeItemProps = {
+export type storeItemType = {
   name: string;
   price: string;
   type: string;

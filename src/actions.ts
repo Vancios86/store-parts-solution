@@ -1,8 +1,8 @@
-import { dataType, storeItemProps } from "./types"
+import { dataType, storeItemType } from "./types"
 
 //search feature logic
 export const search = (input: string, data: dataType): any  => {
-   const filteredData = data?.filter((object: storeItemProps) => object.name.toLowerCase().includes(input));
+   const filteredData = data?.filter((object: storeItemType) => object.name.toLowerCase().includes(input));
    return filteredData;
 }
 
@@ -11,7 +11,7 @@ const toNumber = (str: string) => +str.replace('$', ''); //transform from price 
 
 export const orderByPrice = (ascendingPrice: boolean, data: dataType) => {
    const clonedData = data; //make a copy of the original data to avoid side effects from sort array method
-   clonedData.sort((prevItem: storeItemProps, currItem: storeItemProps) =>
+   clonedData.sort((prevItem: storeItemType, currItem: storeItemType) =>
      ascendingPrice
        ? toNumber(prevItem.price) - toNumber(currItem.price)
        : toNumber(currItem.price) - toNumber(prevItem.price)

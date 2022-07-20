@@ -39,6 +39,25 @@
   background-color: blanchedalmond;
 }
 
+.item-details {
+  border: 1px solid black;
+  width: auto;
+  max-width: 80rem;
+  min-width: 10rem;
+  margin-inline: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  align-self: center;
+}
+
+button {
+  margin: 1rem;
+  font-size: large;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 500px) {
   .inputs-area > .input {
     width: 88px;
