@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect, FC } from 'react';
+import { useState, useEffect } from 'react';
 import { storeItemType, dataType, ClickEventHandler } from './types';
 import SearchInput from './components/SearchInput';
 import PriceOrder from './components/PriceOrder';
@@ -11,7 +11,7 @@ import {
   eliminateDuplicates,
 } from './actions';
 
-const App: FC = () => {
+const App = () => {
   const [route, setRoute] = useState<string>('');
   const [data, setData] = useState<dataType>([
     {
@@ -22,7 +22,7 @@ const App: FC = () => {
   ]);
   const [searchValue, setSearchValue] = useState<string>('');
   const [ascendingPrice, setAscendingPrice] = useState<boolean>(false);
-  const [itemTypes, setItemTypes] = useState<object>([]);
+  const [itemTypes, setItemTypes] = useState<any>([]);
   const [selectedType, setSelectedType] = useState<string>('');
   const [details, setDetails] = useState<storeItemType>({
     name: '',

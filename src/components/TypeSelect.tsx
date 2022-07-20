@@ -1,4 +1,10 @@
-const TypeInput = ({ itemTypes, onChange }) => (
+const TypeInput = ({
+  itemTypes,
+  onChange,
+}: {
+  itemTypes: [];
+  onChange: Function;
+}) => (
   <select
     name='item-types'
     onChange={(e) => {
@@ -6,7 +12,7 @@ const TypeInput = ({ itemTypes, onChange }) => (
     }}
   >
     <option value=''>All</option>
-    {itemTypes.map((type) => (
+    {itemTypes.map((type: string) => (
       <option key={type} value={type.toLowerCase()}>
         {type}
       </option>
