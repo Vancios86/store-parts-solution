@@ -1,6 +1,13 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { storeItemType, dataType, ClickEventHandler } from './types';
+import {
+  StoreItemType,
+  DataType,
+  ClickEventHandler,
+  ItemType,
+  Arrow,
+} from './types';
+import Item from './components/Item';
 import SearchInput from './components/SearchInput';
 import PriceOrder from './components/PriceOrder';
 import TypeSelect from './components/TypeSelect';
@@ -13,7 +20,7 @@ import {
 
 const App = () => {
   const [route, setRoute] = useState<string>('');
-  const [data, setData] = useState<dataType>([
+  const [data, setData] = useState<DataType>([
     {
       name: 'loading...',
       price: '',
@@ -22,14 +29,14 @@ const App = () => {
   ]);
   const [searchValue, setSearchValue] = useState<string>('');
   const [ascendingPrice, setAscendingPrice] = useState<boolean>(false);
-  const [itemTypes, setItemTypes] = useState<any>([]);
+  const [itemTypes, setItemTypes] = useState<Array<ItemType>>([]);
   const [selectedType, setSelectedType] = useState<string>('');
-  const [details, setDetails] = useState<storeItemType>({
+  const [details, setDetails] = useState<StoreItemType>({
     name: '',
     price: '',
     type: '',
   });
-  const [arrow, setArrow] = useState<string>('');
+  const [arrow, setArrow] = useState<Arrow>('');
 
   //fetch the data asynchronously on first component mount
   useEffect(() => {
@@ -37,17 +44,22 @@ const App = () => {
       try {
         setRoute('home');
         let response = await fetch('http://localhost:8081/store/parts');
-        let data = await response.json();
+        let data: DataType = await response.json();
         setItemTypes(
-          eliminateDuplicates(data.map((item: storeItemType) => item.type))
+          eliminateDuplicates(data.map((item): ItemType => item.type))
         );
-        return setData(data || []);
+        return setData(data);
       } catch (error) {
         console.log('waiting for data...', error);
       }
     }
     getData();
   }, []);
+
+  const onItemSelect = (item: StoreItemType): void => {
+    setDetails(item);
+    setRoute('details');
+  };
 
   return (
     <div className='App' data-testid='test-app'>
@@ -57,7 +69,7 @@ const App = () => {
 
           <div className='inputs-area flex'>
             <SearchInput
-              onChange={(searchValue: string): void => {
+              onChange={(searchValue): void => {
                 setSearchValue(searchValue);
                 search(searchValue, data);
               }}
@@ -65,7 +77,7 @@ const App = () => {
             <PriceOrder
               arrow={arrow}
               ascending={ascendingPrice}
-              onChange={(ascendingPrice: boolean): void => {
+              onChange={(ascendingPrice): void => {
                 setAscendingPrice(ascendingPrice);
                 setArrow(ascendingPrice ? '↓' : '↑');
                 orderByPrice(ascendingPrice, data);
@@ -73,7 +85,7 @@ const App = () => {
             />
             <TypeSelect
               itemTypes={itemTypes}
-              onChange={(selectedType: string): void => {
+              onChange={(selectedType): void => {
                 setSelectedType(selectedType);
                 filterByType(selectedType, data);
               }}
@@ -82,19 +94,13 @@ const App = () => {
 
           <div className='data-display' data-testid='test-data'>
             <ul>
-              {filterByType(selectedType, search(searchValue, data)).map(
-                (item: storeItemType) => (
-                  <li
+              {search(searchValue, filterByType(selectedType, data)).map(
+                (item) => (
+                  <Item
+                    itemProps={item}
                     key={item.name}
-                    onClick={(e: ClickEventHandler) => {
-                      setDetails(item);
-                      setRoute('details');
-                    }}
-                  >
-                    <p>{item.name}</p>
-                    <p>{item.price}</p>
-                    <p>{item.type}</p>
-                  </li>
+                    onItemSelect={onItemSelect}
+                  />
                 )
               )}
             </ul>
@@ -105,13 +111,13 @@ const App = () => {
           <h2>Item details page</h2>
           <div className='item-details'>
             <p>
-              name: <strong>{details.name}</strong>
+              NAME: <strong>{details.name}</strong>
             </p>
             <p>
-              price: <strong>{details.price}</strong>
+              PRICE: <strong>{details.price}</strong>
             </p>
             <p>
-              type: <strong>{details.type}</strong>
+              TYPE: <strong>{details.type}</strong>
             </p>
             <p>detailed description: ...</p>
           </div>

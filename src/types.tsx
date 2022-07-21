@@ -2,22 +2,16 @@ import React from 'react';
 
 export type InputChangeEventHandler =
   React.ChangeEventHandler<HTMLInputElement>;
-export type TextAreaChangeEventHandler =
-  React.ChangeEventHandler<HTMLTextAreaElement>;
 export type SelectChangeEventHandler =
   React.ChangeEventHandler<HTMLSelectElement>;
 export type ClickEventHandler = React.MouseEvent<HTMLElement>;
 
-export type storeItemType = {
+export type StoreItemType = {
   name: string;
   price: string;
-  type: string;
+  type: ItemType;
 };
 
-export type dataType = [
-  {
-    name: string;
-    price: string;
-    type: string;
-  }
-];
+export type DataType = Array<StoreItemType>;
+export type Arrow = '↑' | '↓' | '';
+export type ItemType = 'monitor' | 'mouse' | 'keyboard' | 'mousepad' | '';

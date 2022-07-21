@@ -1,16 +1,16 @@
+import { Arrow, ClickEventHandler } from '../types';
+
 const PriceOrder = ({
   onChange,
   arrow,
   ascending,
 }: {
-  onChange: Function;
-  arrow: string;
+  onChange: (ascending: boolean) => void;
+  arrow: Arrow;
   ascending: boolean;
 }) => (
-  <button
-    onClick={(click: React.MouseEvent<HTMLElement>) => onChange(!ascending)}
-  >
-    Order by price {arrow}
+  <button onClick={(click: ClickEventHandler) => onChange(!ascending)}>
+    Arrange by price {arrow}
   </button>
 );
 

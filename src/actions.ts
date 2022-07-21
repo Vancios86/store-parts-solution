@@ -1,28 +1,26 @@
-import { dataType, storeItemType } from "./types"
+import { DataType, StoreItemType } from "./types"
 
 //search feature logic
-export const search = (input: string, data: dataType): any  => {
-   const filteredData = data?.filter((object: storeItemType) => object.name.toLowerCase().includes(input));
+export const search = (input: string, data: DataType): DataType  => {
+   const filteredData = data?.filter((object: StoreItemType) => object.name.toLowerCase().includes(input));
    return filteredData;
 }
 
 //order by price logic
-const toNumber = (str: string) => +str.replace('$', ''); //transform from price format to numbers
+const toNumber = (str: string): number => +str.replace('$', ''); //transform from string price format  to number
 
-export const orderByPrice = (ascendingPrice: boolean, data: dataType) => {
-   const clonedData = data; //make a copy of the original data to avoid side effects from sort array method
-   clonedData.sort((prevItem: storeItemType, currItem: storeItemType) =>
+export const orderByPrice = (ascendingPrice: boolean, data: DataType): void => {
+   data.sort((prevItem: StoreItemType, currItem: StoreItemType) =>
      ascendingPrice
        ? toNumber(prevItem.price) - toNumber(currItem.price)
        : toNumber(currItem.price) - toNumber(prevItem.price)
    );
-   return clonedData;
  };
 
  //filter items by type logic
- export const eliminateDuplicates = (items: any) => [...new Set<object>(items)]; //eliminate type duplicates
+ export const eliminateDuplicates = (items: Array<any>): Array<any> => [...new Set<object>(items)]; //eliminate type duplicates
 
- export const filterByType = (type: string, data: dataType): any => { 
-   const filteredData = data.filter((item) => type ? item.type.toLowerCase() === type : item);
+ export const filterByType = (type: string, data: DataType): Array<StoreItemType> => { 
+   const filteredData = data.filter((item: StoreItemType) => type ? item.type.toLowerCase() === type : item);
    return filteredData
 }
