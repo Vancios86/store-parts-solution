@@ -7,13 +7,20 @@
   height: 5rem;
   align-self: center;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  font-size: 1rem;
+  margin: 3rem 0 1rem 0;
 }
-
-.inputs-area > .input {
+.inputs-wrapper {
+  max-width: 80rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.input {
   border: 1px solid black;
-  height: 2rem;
+  border-radius: 0.2rem;
 }
 
 .data-display > ul {
@@ -28,7 +35,7 @@
   display: flex;
   justify-content: space-evenly;
   margin: 0.21rem;
-  width: 95%;
+  width: 90%;
   min-width: 280px;
   max-width: 80rem;
   align-self: center;
@@ -36,30 +43,36 @@
 
 .data-display > ul li:hover {
   cursor: pointer;
-  background-color: blanchedalmond;
+  background-color: lightgrey;
+}
+
+.item-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 1rem;
 }
 
 .item-details {
   border: 1px solid black;
-  width: auto;
-  max-width: 80rem;
   min-width: 10rem;
-  margin-inline: 1rem;
+  max-width: 80rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1rem;
   align-self: center;
+  padding: 1rem;
 }
 
 button {
-  margin: 1rem;
-  font-size: large;
+  margin-inline: 1rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {
   .inputs-area > .input {
-    width: 88px;
+    width: 80px;
   }
 }
