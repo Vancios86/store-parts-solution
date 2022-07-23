@@ -1,6 +1,6 @@
 import { ItemType } from '../types';
 
-const TypeInput = ({
+const TypeSelect = ({
   itemTypes,
   onChange,
 }: {
@@ -9,6 +9,7 @@ const TypeInput = ({
 }) => (
   <select
     name='item-types'
+    data-testid='test-type-select'
     onChange={(e): void => {
       onChange(e.target.value as ItemType);
     }}
@@ -22,4 +23,4 @@ const TypeInput = ({
   </select>
 );
 
-export default TypeInput;
+export default TypeSelect;

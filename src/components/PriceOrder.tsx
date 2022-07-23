@@ -9,7 +9,10 @@ const PriceOrder = ({
   arrow: Arrow;
   ascending: boolean;
 }) => (
-  <button onClick={(click: ClickEventHandler) => onChange(!ascending)}>
+  <button
+    data-testid='test-price-order'
+    onClick={(click: ClickEventHandler) => onChange(!ascending)}
+  >
     Arrange by price {arrow}
   </button>
 );

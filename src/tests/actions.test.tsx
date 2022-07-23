@@ -50,8 +50,8 @@ describe('orderByPrice', () => {
   });
 });
 
-describe('orderByPriceTrigger', () => {
-  test('should order the items by price', () => {
+describe('orderByPriceTrigger descending', () => {
+  test('should order the items by descending price', () => {
     const data = [
       {
         name: 'item1',
@@ -88,8 +88,10 @@ describe('orderByPriceTrigger', () => {
     ];
     expect(orderByPriceTrigger('↓', data)).toEqual(expected);
   });
+});
 
-  test('should order the data by price descending', () => {
+describe('orderByPriceTrigger ascending', () => {
+  test('should order the data by ascending price', () => {
     const data = [
       {
         name: 'item1',
@@ -128,39 +130,43 @@ describe('orderByPriceTrigger', () => {
   });
 });
 
-test('should filter the items by search value', () => {
-  expect(search('k', mockItems as Data)).toMatchObject([
-    {
-      name: 'Keyboard 1',
-      price: '15.00$',
-      type: 'keyboard',
-    },
-    {
-      name: 'Keyboard 2',
-      price: '154.00$',
-      type: 'keyboard',
-    },
-    {
-      name: 'Keyboard 3',
-      price: '83.00$',
-      type: 'keyboard',
-    },
-  ]);
+describe('search', () => {
+  test('should filter the items by search value', () => {
+    expect(search('k', mockItems as Data)).toMatchObject([
+      {
+        name: 'Keyboard 1',
+        price: '15.00$',
+        type: 'keyboard',
+      },
+      {
+        name: 'Keyboard 2',
+        price: '154.00$',
+        type: 'keyboard',
+      },
+      {
+        name: 'Keyboard 3',
+        price: '83.00$',
+        type: 'keyboard',
+      },
+    ]);
+  });
 });
 
-test('should filter the elements by type', () => {
-  expect(filterByType('mouse', mockItems as Data)).toMatchObject([
-    {
-      name: 'Mouse 1',
-      price: '112.00$',
-      type: 'mouse',
-    },
-    {
-      name: 'Mouse 2',
-      price: '35.99$',
-      type: 'mouse',
-    },
-  ]);
+describe('filterByType', () => {
+  test('should filter the elements by type', () => {
+    expect(filterByType('mouse', mockItems as Data)).toMatchObject([
+      {
+        name: 'Mouse 1',
+        price: '112.00$',
+        type: 'mouse',
+      },
+      {
+        name: 'Mouse 2',
+        price: '35.99$',
+        type: 'mouse',
+      },
+    ]);
+  });
 });
 
 describe('eliminateDuplicates', () => {
@@ -172,11 +178,13 @@ describe('eliminateDuplicates', () => {
   });
 });
 
-test('should convert a string to a number', () => {
-  expect(toNumber('123')).toBe(123);
-  expect(toNumber('123.45')).toBe(123.45);
-  expect(toNumber('123.45$')).toBe(123.45);
-  expect(toNumber('abc')).toBe(NaN);
+describe('toNumber', () => {
+  test('should convert string to number', () => {
+    expect(toNumber('123')).toBe(123);
+    expect(toNumber('123.45')).toBe(123.45);
+    expect(toNumber('123.45$')).toBe(123.45);
+    expect(toNumber('abc')).toBe(NaN);
+  });
 });
 
 afterEach(() => cleanup());

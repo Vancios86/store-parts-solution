@@ -1,5 +1,6 @@
 const SearchInput = ({ onChange }: { onChange: (e: string) => void }) => (
   <input
+    data-testid='test-search-input'
     className='input'
     type='text'
     placeholder={'Search...'}

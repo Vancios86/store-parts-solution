@@ -1,14 +1,15 @@
-import { StoreItemType, ClickEventHandler } from '../types';
+import { StoreObject, ClickEventHandler } from '../types';
 
 const Item = (
   {
     itemProps: { name, price, type },
     onItemSelect,
-  }: { itemProps: StoreItemType; onItemSelect: (item: StoreItemType) => void },
+  }: { itemProps: StoreObject; onItemSelect: (item: StoreObject) => void },
   { key }: { key: string }
 ) => {
   return (
     <li
+      data-testid='test-item'
       key={key}
       onClick={(e: ClickEventHandler) => {
         onItemSelect({ name, price, type });
