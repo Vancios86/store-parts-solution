@@ -19,6 +19,10 @@ import {
   eliminateDuplicates,
 } from './actions';
 
+// wrap orderByPrice in a function to trigger it conditionally
+export const orderByPriceTrigger = (arrow: Arrow, data: Data) =>
+  arrow ? orderByPrice(arrow === '↑' ? true : false, data) : data;
+
 const App = () => {
   const [route, setRoute] = useState<Route>('');
   const [data, setData] = useState<Data>([
@@ -95,15 +99,16 @@ const App = () => {
 
           <div className='data-display' data-testid='test-data'>
             <ul>
-              {search(searchValue, filterByType(selectedType, data)).map(
-                (item) => (
-                  <Item
-                    itemProps={item}
-                    key={item.name}
-                    onItemSelect={onItemSelect}
-                  />
-                )
-              )}
+              {orderByPrice(
+                ascendingPrice,
+                search(searchValue, filterByType(selectedType, data))
+              ).map((item) => (
+                <Item
+                  itemProps={item}
+                  key={item.name}
+                  onItemSelect={onItemSelect}
+                />
+              ))}
             </ul>
           </div>
         </div>
