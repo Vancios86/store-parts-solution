@@ -6,12 +6,13 @@ export type SelectChangeEventHandler =
   React.ChangeEventHandler<HTMLSelectElement>;
 export type ClickEventHandler = React.MouseEvent<HTMLElement>;
 
-export type StoreItemType = {
+export type StoreObject = {
   name: string;
   price: string;
   type: ItemType;
 };
 
-export type DataType = Array<StoreItemType>;
+export type Data = Array<StoreObject>;
 export type Arrow = '↑' | '↓' | '';
-export type ItemType = 'monitor' | 'mouse' | 'keyboard' | 'mousepad' | '';
+export type ItemType = 'monitor' | 'mouse' | 'keyboard' | 'mousepad' | string;
+export type Route = 'home' | 'details' | '';

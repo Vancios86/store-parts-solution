@@ -1,11 +1,12 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import {
-  StoreItemType,
-  DataType,
+  StoreObject,
+  Data,
   ClickEventHandler,
   ItemType,
   Arrow,
+  Route,
 } from './types';
 import Item from './components/Item';
 import SearchInput from './components/SearchInput';
@@ -19,8 +20,8 @@ import {
 } from './actions';
 
 const App = () => {
-  const [route, setRoute] = useState<string>('');
-  const [data, setData] = useState<DataType>([
+  const [route, setRoute] = useState<Route>('');
+  const [data, setData] = useState<Data>([
     {
       name: 'loading...',
       price: '',
@@ -31,7 +32,7 @@ const App = () => {
   const [ascendingPrice, setAscendingPrice] = useState<boolean>(false);
   const [itemTypes, setItemTypes] = useState<Array<ItemType>>([]);
   const [selectedType, setSelectedType] = useState<string>('');
-  const [details, setDetails] = useState<StoreItemType>({
+  const [details, setDetails] = useState<StoreObject>({
     name: '',
     price: '',
     type: '',
@@ -44,7 +45,7 @@ const App = () => {
       try {
         setRoute('home');
         let response = await fetch('http://localhost:8081/store/parts');
-        let data: DataType = await response.json();
+        let data: Data = await response.json();
         setItemTypes(
           eliminateDuplicates(data.map((item): ItemType => item.type))
         );
@@ -56,7 +57,7 @@ const App = () => {
     getData();
   }, []);
 
-  const onItemSelect = (item: StoreItemType): void => {
+  const onItemSelect = (item: StoreObject): void => {
     setDetails(item);
     setRoute('details');
   };
