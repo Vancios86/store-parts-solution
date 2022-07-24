@@ -13,7 +13,7 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<!-- PROJECT LOGO -->
+<!-- PROJECT Presentation-->
 <br />
 <div align="center">
 
@@ -159,7 +159,7 @@ Project Link: [https://github.com/vancios86/store-parts-solution](https://github
 [license-url]: https://github.com/vancios86/store-parts-solution/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/ion-albu
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: public/app-scrshot.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [typescriptlang.org]: https://badges.frapsoft.com/typescript/code/typescript-125x28.png?v=101
