@@ -9,7 +9,6 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -17,22 +16,16 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/vancios86/STORE-PARTS-SOLUTI0N">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">Store Solution</h3>
 
   <p align="center">
-    This project was created as a challenge during my recruitment process with Mozantech. It is a React interface created with create-react-app, which fetches <code>{ data }</code> from an api and performs various operations like search by value, sort by type, arrange by price on it. The app is statically typed using TypeScript and includes various unit tests using jest.  
+    This project was created as a challenge during my recruitment process with Mozantech. It is a React interface created with create-react-app, which fetches data from a given API and performs various operations like search by value, sort by type, arrange by price on it. The app is statically typed using TypeScript and includes various unit tests created using Jest framework.  
     <br />
     <a href="https://github.com/vancios86/store-parts-solution"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/vancios86/store-parts-solution">View Demo</a>
-    ·
     <a href="https://github.com/vancios86/store-parts-solution/issues">Report Bug</a>
-    ·
+    <br />
     <a href="https://github.com/vancios86/store-parts-solution/issues">Request Feature</a>
   </p>
 </div>
@@ -71,6 +64,7 @@
 ### Built With
 
 - [![React][react.js]][react-url]
+- [![TypeScript][typescriptlang.org]][typescript-url]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -83,23 +77,22 @@ To do that follow the steps from down bellow.
 
 ### Prerequisites
 
-You will need to have Node.js and NPM installed. In case you don't here is an useful link: https://docs.npmjs.com/cli/v7/configuring-npm/install
+You will need to have Node.js and NPM installed. In case you don't here are some useful links: https://nodejs.org; https://docs.npmjs.com/cli/v7/configuring-npm/install;
 
-- npm
-
-  ```sh
-
-  ```
-
-- yarn
-
-  ```
-
-  ```
+- Node.js
+- NPM
 
 ### Installation
 
-1. Clone the repos inside a folder using the commands down bellow in your terminal
+You need to have the repositories from both: the API provided by Mozantech and the React App created by me, downloaded to your machine. Follow the steps down bellow to do that:
+
+1. Open the terminal and navigate to a directory where you want to have the repositories
+
+```sh
+  ex: cd C:\Users\YourUser\Documents\Path>
+```
+
+2. Clone the repos inside the directory of choice pasting the commands down bellow in your terminal
 
 ```sh
   git clone https://github.com/vancios86/store-parts-solution.git
@@ -109,12 +102,19 @@ You will need to have Node.js and NPM installed. In case you don't here is an us
   git clone https://github.com/Mozantech/store-parts-exercise
 ```
 
-2. Open a terminal for each of the directories and install NPM packages in both using:
+3. Have a terminal opened for EACH of the directories and install NPM packages in both using:
+
    ```sh
    npm install
    ```
-3. Run npm start in both terminals
-4. Now you should have the app running in your browser on port <code>localhost:3000</code> and making requests to fetch data from the api running on port <code>localhost:8081</code>
+
+4. After installing the dependencies run npm start in both terminals
+
+```sh
+ npm start
+```
+
+4. Now you should have the app running in your browser on port <code>localhost:3000</code> and making requests to fetch data from the api running on port <code>localhost:8081</code>.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -122,7 +122,7 @@ You will need to have Node.js and NPM installed. In case you don't here is an us
 
 ## Usage
 
-Use it as you like and try to break it...if you can. :D
+Use it as you please and try to break it if you can...obviously not by changing my code :D
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -162,3 +162,5 @@ Project Link: [https://github.com/vancios86/store-parts-solution](https://github
 [product-screenshot]: images/screenshot.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
+[typescriptlang.org]: https://badges.frapsoft.com/typescript/code/typescript-125x28.png?v=101
+[typescript-url]: https://www.typescriptlang.org/

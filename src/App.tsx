@@ -99,6 +99,7 @@ const App = () => {
 
           <div className='data-display' data-testid='test-data'>
             <ul>
+              {/*  composite a function to bundle together the logic from search by value with filter by type and orderByPriceTrigger */}
               {orderByPrice(
                 ascendingPrice,
                 search(searchValue, filterByType(selectedType, data))
