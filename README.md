@@ -57,14 +57,13 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]
+![Product Name Screen Shot][product-screenshot]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
-- [![React][react.js]][react-url]
-- [![TypeScript][typescriptlang.org]][typescript-url]
+[![React][react.js]][react-url] [![TypeScript][typescriptlang.org]][typescript-url]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -88,9 +87,9 @@ You need to have the repositories from both: the API provided by Mozantech and t
 
 1. Open the terminal and navigate to a directory where you want to have the repositories
 
-```sh
+<code>
   ex: cd C:\Users\YourUser\Documents\Path>
-```
+</code>
 
 2. Clone the repos inside the directory of choice pasting the commands down bellow in your terminal
 
@@ -104,9 +103,9 @@ You need to have the repositories from both: the API provided by Mozantech and t
 
 3. Have a terminal opened for EACH of the directories and install NPM packages in both using:
 
-   ```sh
-   npm install
-   ```
+```sh
+  npm install
+```
 
 4. After installing the dependencies run npm start in both terminals
 
@@ -162,5 +161,5 @@ Project Link: [https://github.com/vancios86/store-parts-solution](https://github
 [product-screenshot]: public/app-scrshot.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
-[typescriptlang.org]: https://badges.frapsoft.com/typescript/code/typescript-125x28.png?v=101
+[typescriptlang.org]: https://badges.frapsoft.com/typescript/code/typescript.svg?v=101
 [typescript-url]: https://www.typescriptlang.org/
