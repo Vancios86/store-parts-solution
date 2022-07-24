@@ -49,7 +49,6 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -63,7 +62,8 @@
 
 ### Built With
 
-[![React][react.js]][react-url] [![TypeScript][typescriptlang.org]][typescript-url]
+[![React][react.js]][react-url]
+[![TypeScript][typescriptlang.org]][typescript-url]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -146,6 +146,7 @@ Unlicensed
 ## Contact
 
 Project Link: [https://github.com/vancios86/store-parts-solution](https://github.com/vancios86/store-parts-solution)
+LinkedIn: [https://linkedin.com/in/ion-albu](https://linkedin.com/in/ion-albu)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
